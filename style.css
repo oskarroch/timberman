@@ -69,3 +69,12 @@ body {
 .right {
   transform: translateX(+250px);
 }
+
+#score {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}

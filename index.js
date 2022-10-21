@@ -73,6 +73,7 @@ function moveLogs() {
     logs.classList.add(dec(eval(`log${i}`)));
   }
   score++;
+  document.getElementById("score").innerHTML = score;
 }
 
 document.body.addEventListener("keydown", (e) => {
@@ -112,6 +113,5 @@ function cutDown() {
 }
 
 function lose() {
-  console.log("lost");
   score = 0;
 }
