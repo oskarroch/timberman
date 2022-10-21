@@ -5,6 +5,18 @@ let log3 = 0;
 let log4 = 0;
 let log5 = 0;
 
+let score = 0;
+
+document.addEventListener("DOMContentLoaded", () => {
+  leftSide();
+  Randomize1();
+  Randomize0();
+  for (let i = 0; i < 6; i++) {
+    let logs = document.getElementById(`logs${i}`);
+    logs.classList.add(dec(eval(`log${i}`)));
+  }
+});
+
 function Randomize1() {
   if (log2 === 0) {
     log1 = Math.floor(Math.random() * 3);
@@ -41,17 +53,6 @@ function dec(log) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  Randomize1();
-  Randomize0();
-  for (let i = 0; i < 6; i++) {
-    let logs = document.getElementById(`logs${i}`);
-    logs.classList.add(dec(eval(`log${i}`)));
-  }
-
-  console.log(log0, log1, log2, log3, log4, log5);
-});
-
 function moveLogs() {
   document.getElementById("logs5").removeAttribute("class");
   log5 = log4;
@@ -70,4 +71,29 @@ function moveLogs() {
     logs.classList.remove(dec(eval(`log${i}`)));
     logs.classList.add(dec(eval(`log${i}`)));
   }
+  score++;
+}
+
+document.body.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft" || e.key === "a") {
+    leftSide();
+    moveLogs();
+  }
+});
+
+document.body.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === "d") {
+    rightSide();
+    moveLogs();
+  }
+});
+
+function leftSide() {
+  document.getElementById("dude").classList.remove("right");
+  document.getElementById("dude").classList.add("left");
+}
+
+function rightSide() {
+  document.getElementById("dude").classList.remove("left");
+  document.getElementById("dude").classList.add("right");
 }

@@ -18,6 +18,36 @@ body {
   height: 100vh;
 }
 
+#logs0,
+#logs1,
+#logs2,
+#logs3,
+#logs4,
+#logs5 {
+  display: inline-block;
+  margin: 0 auto;
+  width: 200px;
+  height: 120px;
+  outline: 1px solid black;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+#dude {
+  position: absolute;
+  outline: 1px solid black;
+  width: 200px;
+  height: 250px;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .rightStick {
   font-size: 1rem;
   background-color: red;
@@ -32,15 +62,10 @@ body {
   font-size: 1rem;
 }
 
-div {
-  display: inline-block;
-  margin: 0 auto;
-  width: 200px;
-  height: 120px;
-  outline: 1px solid black;
+.left {
+  transform: translateX(-250px);
 }
 
-#wrapper {
-  width: 100%;
-  height: 100vh;
+.right {
+  transform: translateX(+250px);
 }
