@@ -7,6 +7,7 @@ let log5 = 0;
 
 let side;
 let score = 0;
+lost = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   leftSide();
@@ -78,12 +79,14 @@ function moveLogs() {
 }
 
 document.body.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowRight" || e.key === "d") {
-    rightSide();
-    moveLogs();
-  } else if (e.key === "ArrowLeft" || e.key === "a") {
-    leftSide();
-    moveLogs();
+  if (lost != true) {
+    if (e.key === "ArrowRight" || e.key === "d") {
+      rightSide();
+      moveLogs();
+    } else if (e.key === "ArrowLeft" || e.key === "a") {
+      leftSide();
+      moveLogs();
+    }
   }
 });
 
@@ -109,4 +112,6 @@ function cutDown() {
 
 function lose() {
   score = 0;
+  document.getElementById("loseScreen").classList.add("lost");
+  lost = true;
 }

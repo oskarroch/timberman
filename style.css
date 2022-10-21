@@ -78,3 +78,23 @@ body {
   margin-right: auto;
   margin-top: 50px;
 }
+
+#loseScreen {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  display: table;
+  left: -100%;
+}
+
+#loseScreen h1 {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 10rem;
+  color: purple;
+}
+
+.lost {
+  left: 0 !important;
+}
