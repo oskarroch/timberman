@@ -5,6 +5,7 @@ let log3 = 0;
 let log4 = 0;
 let log5 = 0;
 
+let side;
 let score = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -76,6 +77,7 @@ function moveLogs() {
 
 document.body.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft" || e.key === "a") {
+    cutDown();
     leftSide();
     moveLogs();
   }
@@ -83,6 +85,7 @@ document.body.addEventListener("keydown", (e) => {
 
 document.body.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight" || e.key === "d") {
+    cutDown();
     rightSide();
     moveLogs();
   }
@@ -91,9 +94,24 @@ document.body.addEventListener("keydown", (e) => {
 function leftSide() {
   document.getElementById("dude").classList.remove("right");
   document.getElementById("dude").classList.add("left");
+  side = "left";
 }
 
 function rightSide() {
   document.getElementById("dude").classList.remove("left");
   document.getElementById("dude").classList.add("right");
+  side = "right";
+}
+
+function cutDown() {
+  if (side === "right" && log5 === 2) {
+    lose();
+  } else if (side === "left" && log5 === 1) {
+    lose();
+  }
+}
+
+function lose() {
+  console.log("lost");
+  score = 0;
 }
