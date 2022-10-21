@@ -55,6 +55,7 @@ function dec(log) {
 }
 
 function moveLogs() {
+  cutDown();
   document.getElementById("logs5").removeAttribute("class");
   log5 = log4;
   document.getElementById("logs4").removeAttribute("class");
@@ -77,17 +78,11 @@ function moveLogs() {
 }
 
 document.body.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowLeft" || e.key === "a") {
-    cutDown();
-    leftSide();
-    moveLogs();
-  }
-});
-
-document.body.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight" || e.key === "d") {
-    cutDown();
     rightSide();
+    moveLogs();
+  } else if (e.key === "ArrowLeft" || e.key === "a") {
+    leftSide();
     moveLogs();
   }
 });
@@ -105,9 +100,9 @@ function rightSide() {
 }
 
 function cutDown() {
-  if (side === "right" && log5 === 2) {
+  if (side === "right" && log4 === 2) {
     lose();
-  } else if (side === "left" && log5 === 1) {
+  } else if (side === "left" && log4 === 1) {
     lose();
   }
 }
