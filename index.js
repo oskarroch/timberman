@@ -1,9 +1,17 @@
 let log0;
 let log1;
-let log2 = Math.floor(Math.random() * 3);
-let log3 = 0;
-let log4 = 0;
-let log5 = 0;
+let log2;
+let log3;
+let log4;
+let log5;
+let side;
+let score = 0;
+lost = false;
+
+document.addEventListener("DOMContentLoaded", () => {
+  generateStartingTree();
+  leftSide();
+});
 
 function generateStartingTree() {
   document.getElementById("logs5").removeAttribute("class");
@@ -24,20 +32,6 @@ function generateStartingTree() {
     logs.classList.add(dec(eval(`log${i}`)));
   }
 }
-
-let side;
-let score = 0;
-lost = false;
-
-document.addEventListener("DOMContentLoaded", () => {
-  leftSide();
-  Randomize1();
-  Randomize0();
-  for (let i = 0; i < 6; i++) {
-    let logs = document.getElementById(`logs${i}`);
-    logs.classList.add(dec(eval(`log${i}`)));
-  }
-});
 
 function Randomize1() {
   if (log2 === 0) {
@@ -110,22 +104,28 @@ document.body.addEventListener("keydown", (e) => {
   }
 });
 
+document.body.addEventListener("keyup", (e) => {
+  cutDown();
+});
+
 function leftSide() {
+  cutDown();
+  side = "left";
   document.getElementById("dude").classList.remove("right");
   document.getElementById("dude").classList.add("left");
-  side = "left";
 }
 
 function rightSide() {
+  cutDown();
+  side = "right";
   document.getElementById("dude").classList.remove("left");
   document.getElementById("dude").classList.add("right");
-  side = "right";
 }
 
 function cutDown() {
-  if (side === "right" && log4 === 2) {
+  if (side === "right" && log5 === 2) {
     lose();
-  } else if (side === "left" && log4 === 1) {
+  } else if (side === "left" && log5 === 1) {
     lose();
   }
 }
