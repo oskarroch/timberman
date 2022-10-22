@@ -59,6 +59,7 @@ body {
 }
 
 .noStick {
+  content: "no";
   font-size: 1rem;
 }
 
@@ -92,7 +93,23 @@ body {
   display: table-cell;
   vertical-align: middle;
   font-size: 10rem;
-  color: purple;
+  color: #3c4048;
+}
+
+#reset {
+  position: absolute;
+  outline: 1px solid black;
+  width: 250px;
+  height: 100px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 600px;
+}
+
+#reset:hover {
+  cursor: pointer;
 }
 
 .lost {

@@ -5,6 +5,26 @@ let log3 = 0;
 let log4 = 0;
 let log5 = 0;
 
+function generateStartingTree() {
+  document.getElementById("logs5").removeAttribute("class");
+  document.getElementById("logs4").removeAttribute("class");
+  document.getElementById("logs3").removeAttribute("class");
+  document.getElementById("logs2").removeAttribute("class");
+  document.getElementById("logs1").removeAttribute("class");
+  document.getElementById("logs0").removeAttribute("class");
+  log2 = Math.floor(Math.random() * 3);
+  log3 = 0;
+  log4 = 0;
+  log5 = 0;
+  Randomize1();
+  Randomize0();
+  for (let i = 0; i < 6; i++) {
+    let logs = document.getElementById(`logs${i}`);
+    logs.classList.remove(dec(eval(`log${i}`)));
+    logs.classList.add(dec(eval(`log${i}`)));
+  }
+}
+
 let side;
 let score = 0;
 lost = false;
@@ -111,7 +131,18 @@ function cutDown() {
 }
 
 function lose() {
-  score = 0;
   document.getElementById("loseScreen").classList.add("lost");
   lost = true;
+}
+
+document.getElementById("reset").onclick = () => {
+  resetGame();
+};
+
+function resetGame() {
+  score = 0;
+  document.getElementById("score").innerHTML = score;
+  document.getElementById("loseScreen").classList.remove("lost");
+  generateStartingTree();
+  lost = false;
 }
