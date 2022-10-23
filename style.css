@@ -72,6 +72,7 @@ body {
 }
 
 #score {
+  color: #dc5f00;
   position: absolute;
   left: 0;
   right: 0;
@@ -82,6 +83,7 @@ body {
 
 #loseScreen {
   position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
   width: 100%;
   text-align: center;
@@ -93,7 +95,7 @@ body {
   display: table-cell;
   vertical-align: middle;
   font-size: 10rem;
-  color: #3c4048;
+  color: #7de5ed;
 }
 
 #reset {

@@ -6,7 +6,7 @@ let log4;
 let log5;
 let side;
 let score = 0;
-lost = false;
+let lost = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   generateStartingTree();
